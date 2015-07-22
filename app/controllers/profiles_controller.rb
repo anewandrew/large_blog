@@ -6,6 +6,8 @@ class ProfilesController < ApplicationController
   def show
     @profile = Profile.find(params[:id])
     @user = User.find(@profile.user_id)
+    @posts = Post.all
+    
   end
 
   def new
@@ -15,15 +17,8 @@ class ProfilesController < ApplicationController
   def create
     @profile = Profile.new(profile_params)
     @profile.user_id = current_user.id
-    logger.debug "hello this is a long string of text just begcause it's so damn hard to see in the cluster &&&& that is teh console"
-    logger.debug @profile.inspect
-    logger.debug ""
     if @profile.save
-      # redirect_to @profile_show
       redirect_to @profile
-      # redirect_to @profiles
-      # redirect_to @profiles_show
-
     else
       render 'new'
     end

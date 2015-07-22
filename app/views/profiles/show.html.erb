@@ -1,10 +1,23 @@
 <h1>Profiles#show</h1>
 <p>Find me in app/views/profiles/show.html.erb</p>
 
+
+<%= image_tag @profile.image.url(:medium) %><br>
+
 <%= @profile.inspect %><br>
 <%= @profile.name %><br>
 <%= @user.email %><br>
 <%= @profile.bio %>
-<p>
-	<%= image_tag @profile.image.url(:medium) %>	
-</p>
+<ul>
+<% @posts.each do |p| %>
+	<% if p.user_id === @profile.user_id %>
+		<li>
+			<ul>
+				<li><%= image_tag p.image.url %></li>
+				<li>Title: <%= p.title %></li>
+				<li><%= p.content %></li>	
+			</ul>
+		</li>
+	<% end %>
+<% end %>
+</ul>

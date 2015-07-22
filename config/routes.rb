@@ -3,8 +3,6 @@ Rails.application.routes.draw do
   root 'posts#index'
 
   #Post actions
-  get 'posts/show'
-
   get 'posts/new'
 
   post 'posts/create'
@@ -15,9 +13,9 @@ Rails.application.routes.draw do
 
   get 'posts/destroy'
 
-  #Profile actions
-  # get 'profiles/' => 'profiles#show'
+  get 'posts/:id' => 'posts#show', as: :post
 
+  #Profile actions
   get 'profiles/index'
 
   get 'profiles/new'
