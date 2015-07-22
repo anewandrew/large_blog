@@ -1,11 +1,13 @@
 Rails.application.routes.draw do
+  #root index directory
   root 'posts#index'
 
+  #Post actions
   get 'posts/show'
 
   get 'posts/new'
 
-  get 'posts/create'
+  post 'posts/create'
 
   get 'posts/edit'
 
@@ -13,19 +15,22 @@ Rails.application.routes.draw do
 
   get 'posts/destroy'
 
-  get 'profiles/index'
+  #Profile actions
+  # get 'profiles/' => 'profiles#show'
 
-  get 'profiles/show'
+  get 'profiles/index'
 
   get 'profiles/new'
 
-  get 'profiles/create'
+  post 'profiles/create'
 
   get 'profiles/edit'
 
-  get 'profiles/update'
+  post 'profiles/update'
 
   get 'profiles/destroy'
+
+  get 'profiles/:id' => 'profiles#show', as: :profile
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
