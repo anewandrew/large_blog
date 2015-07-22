@@ -1,6 +1,7 @@
 <h1>Profiles#show</h1>
 <p>Find me in app/views/profiles/show.html.erb</p>
 
+<%= link_to 'Edit Profile', profile_edit_path(@profile) %><br>
 
 <%= image_tag @profile.image.url(:medium) %><br>
 
