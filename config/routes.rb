@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   #Post actions
   get 'posts/new'
 
-  post 'posts/create'
+  post 'posts/create', as: :posts
 
   # get 'posts/edit'
 

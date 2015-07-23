@@ -1,7 +1,10 @@
 <h1>Posts#show</h1>
 <p>Find me in app/views/posts/show.html.erb</p>
 
+
 <%= link_to 'Edit Post', post_edit_path(@post) %><br>
+
+<%= image_tag @profile.image.url(:thumb) %><br>
 <%= @post.inspect %><br>
 <%= @post.title %><br>
 <%= @post.content %><br>

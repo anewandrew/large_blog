@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    # @post = Post.find(params[:user_id])
   end
 
   def show
     @post = Post.find(params[:id])
+    get_profile
   end
 
   def new
@@ -42,6 +44,9 @@ class PostsController < ApplicationController
   end
 
   private
+  def get_profile
+    @profile = Profile.find_by_user_id(@post.user_id)
+  end
   def post_params
     params.require(:post).permit(:title, :image, :content)
   end
