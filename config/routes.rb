@@ -7,11 +7,13 @@ Rails.application.routes.draw do
 
   post 'posts/create'
 
-  get 'posts/edit'
+  # get 'posts/edit'
 
-  patch 'posts/update'
+  delete 'posts/:id/destroy' => 'posts#destroy', as: :post_destroy
 
-  delete 'posts/destroy'
+  get 'posts/:id/edit' => 'posts#edit', as: :post_edit
+
+  patch 'posts/:id' => 'posts#update', as: :posts_update
 
   get 'posts/:id' => 'posts#show', as: :post
 
@@ -23,6 +25,10 @@ Rails.application.routes.draw do
   post 'profiles/create'
 
   delete 'profiles/destroy'
+
+  get 'profiles/' => 'profiles#new'
+
+  post 'profiles/' => 'profiles#create'
 
   get 'profiles/:id/edit' => 'profiles#edit', as: :profile_edit
 

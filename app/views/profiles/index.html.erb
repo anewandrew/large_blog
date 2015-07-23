@@ -1,2 +1,12 @@
 <h1>Profiles#index</h1>
 <p>Find me in app/views/profiles/index.html.erb</p>
+
+<% @profiles.each do |p| %>
+	<hr>
+	<%= link_to 'See my profile', profile_path(p.id) %><br>
+	<%= image_tag p.image.url(:thumb) %><br>
+	<%= p.name %><br>
+	<%= p.user.email %><br>
+	<%= p.bio %><br>
+
+<% end %>

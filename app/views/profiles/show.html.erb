@@ -1,7 +1,11 @@
 <h1>Profiles#show</h1>
 <p>Find me in app/views/profiles/show.html.erb</p>
 
-<%= link_to 'Edit Profile', profile_edit_path(@profile) %><br>
+<% if user_signed_in? %>
+	<% if @profile.user_id === current_user.id %>
+		<%= link_to 'Edit Profile', profile_edit_path(@profile) %><br>
+	<% end %>
+<% end %>
 
 <%= image_tag @profile.image.url(:medium) %><br>
 
@@ -11,9 +15,11 @@
 <%= @profile.bio %>
 <ul>
 <% @posts.each do |p| %>
+
 	<% if p.user_id === @profile.user_id %>
 		<li>
 			<ul>
+				<%= link_to 'this post', post_path(p.id) %><br>
 				<li><%= image_tag p.image.url %></li>
 				<li>Title: <%= p.title %></li>
 				<li><%= p.content %></li>	

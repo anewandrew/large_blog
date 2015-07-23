@@ -16,7 +16,7 @@
 	<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
 
 	<%= link_to 'New Post', posts_new_path %>
-	
+
 	<%= link_to 'Profile', 
 		if !current_user.profile
 	  		profiles_new_path
@@ -32,7 +32,7 @@
 
 <% end %>
 
-
+<%= link_to 'Profiles', profiles_index_path %>
 
 <%= yield %>
 
