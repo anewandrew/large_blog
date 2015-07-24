@@ -7,5 +7,8 @@
 <%= image_tag @profile.image.url(:thumb) %><br>
 <%= @post.inspect %><br>
 <%= @post.title %><br>
-<%= @post.content %><br>
-<%= image_tag @post.image.url %>
+<%= raw(@post.content) %><br>
+<% if @post.image.url %>
+<% else %>	
+	<%= image_tag p.image.url(:thumb) %>
+<% end %>

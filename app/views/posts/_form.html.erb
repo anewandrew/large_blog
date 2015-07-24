@@ -4,7 +4,7 @@
 	<%= f.text_field :title %><br>
 
 	<%= f.label :content %>
-	<%= f.text_area :content :class => 'editing' %><br>
+	<%= f.text_area :content, :id => 'content' %><br>
 
 	<%= f.label :image %>
 	<%= f.file_field :image %>
@@ -12,3 +12,10 @@
 	<%= f.submit :class => 'btn btn-primary' %>
 
 <% end %>
+
+<script type="text/javascript">
+    $(function()
+    {
+        $('#content').redactor();
+    });
+</script>

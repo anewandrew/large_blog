@@ -28,6 +28,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Text editor
 gem 'wysiwyg-rails'
+# Redactor editor
+gem 'redactor-rails', '~> 0.5.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

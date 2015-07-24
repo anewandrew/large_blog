@@ -21,7 +21,11 @@
 		<li>
 			<ul>
 				<%= link_to 'this post', post_path(p.id) %><br>
-				<li><%= image_tag p.image.url %></li>
+				<% if p.image.url %>
+					
+				<% else %>	
+					<li><%= image_tag p.image.url(:thumb) %></li>
+				<% end %>
 				<li>Title: <%= p.title %></li>
 				<li><%= p.content %></li>
 			</ul>
