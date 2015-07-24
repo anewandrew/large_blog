@@ -1,6 +1,9 @@
 class PostsController < ApplicationController
   def index
     @posts = Post.all
+    # @posts.each do |post|
+
+    # end
     # @post = Post.find(params[:user_id])
   end
 
@@ -10,6 +13,7 @@ class PostsController < ApplicationController
   end
 
   def new
+    
     @post = Post.new
   end
 

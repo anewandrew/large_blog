@@ -3,10 +3,10 @@
 
 <ul>
 <% @posts.each do |p| %>
-	
+	<!-- <% @profile = Profile.find_by_user_id(p.user_id) %> -->
 	<li>
 		<ul>
-			
+			<li><%= image_tag p.profile.image.url(:thumb) %></li>
 			<li><%= image_tag p.image.url(:thumb) %></li>
 			<li><%= p.title %></li>
 			<li><%= p.content %></li>
