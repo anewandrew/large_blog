@@ -10,7 +10,10 @@
 	</p>
 	<p>
 		<%= f.label :image %>
-		<%= f.file_field :image %>
+		<%= f.file_field :image, :class => 'dropzone dz-message' %>
+	</p>
+	<p>
+		
 	</p>
 	<%= f.submit 'Save' %>
 <% end %>

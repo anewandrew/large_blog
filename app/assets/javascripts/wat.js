@@ -1,0 +1,3 @@
+function wat(){
+	alert('wat');
+}

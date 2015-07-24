@@ -51,6 +51,9 @@ class PostsController < ApplicationController
   def get_profile
     @profile = Profile.find_by_user_id(@post.user_id)
   end
+  def set_post_protected
+    
+  end
   def post_params
     params.require(:post).permit(:title, :image, :content)
   end

@@ -49,4 +49,8 @@ class ProfilesController < ApplicationController
   def profile_params
     params.require(:profile).permit(:name, :image, :bio)
   end
+
+  def set_profile_protected
+  end
+  
 end
