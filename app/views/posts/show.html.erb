@@ -8,7 +8,7 @@
 <%= @post.inspect %><br>
 <%= @post.title %><br>
 <%= raw(@post.content) %><br>
-<% if @post.image.url %>
+<% if @post.image.content_type === nil %>		
 <% else %>	
-	<%= image_tag p.image.url(:thumb) %>
+	<li><%= image_tag @post.image.url %></li>
 <% end %>

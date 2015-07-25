@@ -1,21 +1,24 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1 class="col-xs-12">Posts#index</h1>
 
-<ul>
 <% @posts.each do |p| %>
 	
-	<li>
-		<ul>
-			<li><%= image_tag p.profile.image.url(:thumb) %></li>
-			<% if p.image.content_type === nil %>
-				
-			<% else %>	
-				<li><%= image_tag p.image.url %></li>
-			<% end %>
-			<li><%= p.title %></li>
-			<li><%= raw(p.content) %></li>
-		</ul>
-	</li>
+	<div class="border-element">
+		<!-- Profile by line -->
+		
+		<%= link_to image_tag(p.profile.image.url(:thumb), :class => 'img-circle text-left'), profile_path(p.profile.id) %>
+		<h5 class="text-left">	
+			<%= p.profile.name %>
+		</h5>
+		<!-- Post information -->
+		<h1 class="text-left"><%= p.title %></h1>
+		
+		<% if p.image.content_type === nil %>
+			
+		<% else %>
+			<%= image_tag p.image.url %><br>
+		<% end %>
+		
+		<p class="text-left"><%= raw(p.content) %></p>
+	</div>
 	
 <% end %>
-</ul>

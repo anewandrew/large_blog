@@ -1,35 +1,30 @@
 <h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
 
 <% if user_signed_in? %>
 	<% if @profile.user_id === current_user.id %>
-		<%= link_to 'Edit Profile', profile_edit_path(@profile) %><br>
+		<button class="btn btn-default"><%= link_to 'Edit Profile', profile_edit_path(@profile) %></button><br>
 	<% end %>
 <% end %>
 
 <%= image_tag @profile.image.url(:medium) %><br>
 
-<%= @profile.inspect %><br>
-<%= @profile.name %><br>
-<%= @user.email %><br>
+<h1><%= @profile.name %></h1>
+<!-- <%= @user.email %><br> -->
 <%= @profile.bio %>
 
-<ul>
+
 <% @posts.each do |p| %>
 
 	<% if p.user_id === @profile.user_id %>
-		<li>
-			<ul>
+		
 				<%= link_to 'this post', post_path(p.id) %><br>
-				<% if p.image.url %>
-					
+				<% if p.image.content_type === nil %>
+				
 				<% else %>	
-					<li><%= image_tag p.image.url(:thumb) %></li>
+					<%= image_tag p.image.url %>
 				<% end %>
-				<li>Title: <%= p.title %></li>
-				<li><%= p.content %></li>
-			</ul>
-		</li>
+				Title: <%= p.title %>
+				<%= p.content %>
+			
 	<% end %>
 <% end %>
-</ul>

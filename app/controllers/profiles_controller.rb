@@ -4,10 +4,9 @@ class ProfilesController < ApplicationController
   end
 
   def show
-    @profile = Profile.find(params[:id])
+    set_profile
     @user = User.find(@profile.user_id)
     @posts = Post.all
-    
   end
 
   def new
@@ -25,11 +24,12 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile = Profile.find(params[:id])
+    set_profile
+    set_profile_protected
   end
 
   def update
-    @profile = Profile.find(params[:id])
+    set_profile
     if @profile.update(profile_params)
       redirect_to @profile
     else
@@ -46,11 +46,17 @@ class ProfilesController < ApplicationController
   end
 
   private
+  def set_profile
+    @profile = Profile.find(params[:id])
+  end
   def profile_params
     params.require(:profile).permit(:name, :image, :bio)
   end
 
   def set_profile_protected
+    if @profile.user_id != current_user.id
+      redirect_to root_path
+    end
   end
   
 end
