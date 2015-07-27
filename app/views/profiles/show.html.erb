@@ -10,21 +10,23 @@
 
 <h1><%= @profile.name %></h1>
 <!-- <%= @user.email %><br> -->
-<%= @profile.bio %>
+<%= @profile.bio %> <br>
 
 
 <% @posts.each do |p| %>
 
 	<% if p.user_id === @profile.user_id %>
-		
-				<%= link_to 'this post', post_path(p.id) %><br>
-				<% if p.image.content_type === nil %>
-				
-				<% else %>	
-					<%= image_tag p.image.url %>
-				<% end %>
-				Title: <%= p.title %>
-				<%= p.content %>
+		<div class="border-element">	
+			<h1><%= p.title %></h1>
+			<% if p.image.content_type === nil %>
 			
+			<% else %>	
+				<%= image_tag p.image.url, :class => "picture" %><br>
+			<% end %>
+			
+			<%= p.content %><br>
+			<%= link_to 'this post', post_path(p.id) %><br>
+		</div>
+	
 	<% end %>
 <% end %>

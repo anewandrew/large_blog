@@ -1,14 +1,14 @@
-<h1 class="col-xs-12">Posts#index</h1>
+<div class="spacer"></div>
 
 <% @posts.each do |p| %>
 	
 	<div class="border-element">
 		<!-- Profile by line -->
+		<p class="text-left profile-name">	
+		<%= link_to image_tag(p.profile.image.url(:thumb), :class => 'img-circle text-left profile-image-styles'), profile_path(p.profile.id) %>
 		
-		<%= link_to image_tag(p.profile.image.url(:thumb), :class => 'img-circle text-left'), profile_path(p.profile.id) %>
-		<h5 class="text-left">	
 			<%= p.profile.name %>
-		</h5>
+		</p>
 		<!-- Post information -->
 		<h1 class="text-left"><%= p.title %></h1>
 		
@@ -18,7 +18,7 @@
 			<%= image_tag p.image.url %><br>
 		<% end %>
 		
-		<p class="text-left"><%= raw(p.content) %></p>
+		<p class="preview-text text-left"><%= raw(p.content) %></p>
 	</div>
 	
 <% end %>

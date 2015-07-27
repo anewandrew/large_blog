@@ -1,13 +1,26 @@
 body {
 	margin: 0px 0px;
+	font-size: 14px;
 }
 
 h1 {
 	font-family: 'Open sans', sans-serif;
 	font-weight: 700;
 }
-h5 {
+.spacer {
+	margin: 40px 0px;
+}
+p {
+	font-family: 'Open sans'
+}
+.profile-name {
 	vertical-align: top;
+	color: #48E875;
+}
+.profile-image-styles {
+	display: inline-block;
+	width: 80px;
+	height: 80px;
 }
 .main-view-content {
 	margin: 15px 30px;
@@ -18,4 +31,12 @@ h5 {
 .border-element {
 	border-top: 1px solid rgba(0, 0, 0, 0.1);
 	padding: 20px 0px;
+}
+.preview-text {
+	margin-top: 20px;
+	font-size: 1.1em
+}
+.picture {
+	
+	height:500px;
 }
